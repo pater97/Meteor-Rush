@@ -1,0 +1,113 @@
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-image: url('../../assets/images/layers/sky8.svg');
+    background-size: cover;
+}
+
+.layer1{
+    background:url('../../assets/images/layers/layer-giusto.png') repeat-x; 
+    width:3000px ;
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-position: bottom;
+    z-index: 100;
+    animation: slide 5s linear infinite;
+}
+
+.layer2{
+    background-image: url('../../assets/images/layers/layer-2.png');
+    width:3000px ;
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-position: bottom;
+    z-index: 90;
+    background-repeat-y: no-repeat;
+    animation: slide 10s linear infinite;
+}
+.layer3{
+    background-image: url('../../assets/images/layers/layer3.png');
+    width:3000px ;
+    height: 100vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-position: bottom;
+    z-index: 80;
+    background-repeat-y: no-repeat;
+    animation: slide 15s linear infinite;
+}
+
+
+@keyframes slide {
+    0% {transform: translate(0,0);}
+    100%{transform: translate(-1000px,0);}
+} 
+
+
+/* .sky {
+    animation: background-shift 10s infinite forwards;
+}
+
+.rock {
+    transform: translateX(-440px);
+    animation: rock-shift 4s linear 1 forwards;
+} */
+/* layer */
+/* .layer{
+    animation: layer-shift 10s linear infinite ;
+}
+.layer2{
+    animation: layer2-shift 10s linear infinite ;
+}
+.layer3{
+    animation: layer3-shift 10s linear infinite ;
+}
+.layer4{
+    animation: layer4-shift 10s linear infinite ;
+}
+.layer5{
+    animation: layer5-shift 10s linear infinite ;
+}
+/* pianeti */
+/* .planet{
+    animation: planet-shift 30s  infinite ease-in-out;
+}
+.planet2{
+    animation: planet2-shift 40s  infinite  alternate;
+}
+.planet3{
+    animation: planet3-shift 40s  infinite alternate ease-in-out;
+}  */
+/* pianeti animazioni */
+/* pianeta 1 */
+/* @keyframes planet-shift {
+    0% {transform: scale(100%);}
+    50% {transform:scale(110%);}
+    100% {transform: scale(100%);}
+} */
+/* pianeta 2 */
+/* @keyframes planet2-shift {
+    0% {left:0;transform: scale(100%);}
+    50% {left: -100px;transform: scale(70%);}
+    100% {left: 0;transform: scale(100%);}
+} */
+/* pianeta 3 */
+/* @keyframes planet3-shift {
+    0% {left:0;bottom:0;}
+    50% {left: 100px;bottom:100px}
+    100% {left: 0;bottom:0;}
+} */
+
+/* .layer1{
+   background:url('../../assets/images/layers/layer1.png') repeat-x;  
+} 
+.layer2{
+    background:url('../../assets/images/layers/layer3.png') repeat-x;
+} */

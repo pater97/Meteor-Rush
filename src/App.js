@@ -1,6 +1,6 @@
 import './App.css';
-import TestCanvas from './assets/screens/testcanvas/TestCanvas'
-import './assets/screens/testcanvas/testCanvas.css'
+import TestCanvas from './screens/testcanvas/TestCanvas.js'
+import './screens/testcanvas/testCanvas.css'
 
 function App() {
   return (
