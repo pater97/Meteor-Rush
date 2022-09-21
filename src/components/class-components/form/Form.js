@@ -27,14 +27,14 @@ class Form extends Component{
         }
     }
 
-    submit = (e) => {
+    submit = () => {
         this.handleError();
     }
 
     handleError(){
         let state = this.state;
 
-        if(this.usernameHandler === false){
+        if(this.usernameHandler === ""){
             state.usernameError = true;
             console.log("username error");
         } else {
@@ -43,7 +43,7 @@ class Form extends Component{
             console.log("Username:", this.usernameHandler);
         }
 
-        if(this.passwordHandler === false){
+        if(this.passwordHandler === ""){
             state.passwordError = true;
             console.log("password error");
         } else {

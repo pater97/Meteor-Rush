@@ -19,7 +19,7 @@ function Input(props){
                 className={"input-box"}
                 onChange={change}
             />
-            {props.isError && <InputError msg={"Inserisci username"} />}
+            {props.isError && <InputError msg={"Enter username"} />}
         </div>
     );
 }
