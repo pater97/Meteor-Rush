@@ -21,6 +21,7 @@ function GameBox() {
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
   const [obstacleLeft, setObstacleLeft] = useState(BOX_WIDTH + OBSTACLE_WIDTH);
   const [score, setScore] = useState(0);
+  const [jump, setJump] = useState(0);
 
 
   // funzione della gravità
