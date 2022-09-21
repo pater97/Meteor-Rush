@@ -39,7 +39,7 @@ function Tutorial() {
                 </h1>
                 <p>
                     Devi fuggire:
-                   
+
                 </p>
             </caption>
         </div>
