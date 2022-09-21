@@ -7,7 +7,7 @@ import Obstacle from "../../functional-components/obstacle/Obstacle";
 function GameBox() {
   const BOX_HEIGHT = 600;
   const BOX_WIDTH = 600;
-  let GRAVITY = 5; //velocità di discesa
+
   const BALLSIZE = 30;
   const OBSTACLE_HEIGHT = 100;
   const OBSTACLE_WIDTH = 40;

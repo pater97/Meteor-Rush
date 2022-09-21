@@ -5,8 +5,10 @@
     justify-content: space-around;
     width: 30%;
     min-height: 60vh;
+    border: solid white;
     border-radius: 20px;
-    background-color: orange;
+    box-shadow: 5px 5px 10px 0px #000000;
+    background-color: transparent;
     margin: 50px 15px;
     padding: 55px 15px 37px;
 }
