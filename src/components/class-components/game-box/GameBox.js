@@ -14,7 +14,7 @@ function GameBox() {
   const CHARACTER_LEFT = 50;
   const JUMP_HEIGHT = 200; //distanza di salto
   let JUMP_SPEED = 50; //velocità di salto
-  const BASE_CHARAPOSITION = BOX_HEIGHT-100
+  const BASE_CHARAPOSITION = BOX_HEIGHT - 100
   let positionAtATime
 
   const [charaPosition, setCharaPosition] = useState(200);
@@ -24,69 +24,20 @@ function GameBox() {
   const [jump, setJump] = useState(0);
 
 
+  // funzione della gravità
   useEffect(() => {
     //FALLING DOWN
     let timeId = null;
-    
-    if (charaPosition < BOX_HEIGHT - 100) { //se pos. personaggio minore del terreno
-      timeId = setInterval(() => {
-        GRAVITY = 5                 //gravità è 5
-        JUMP_SPEED = 0              //velocità di salto è 0
-        setCharaPosition((charaPosition) => charaPosition + GRAVITY);
-        //la pos personaggio sarà quella precedente + la velocità di discesa
-      }, 24);
-    } else if (charaPosition > jump) { //se la pos. personaggio è maggiore(più in basso) di jump
-      timeId = setInterval(() => {
-        GRAVITY = 0           //discesa torna a 0
-        JUMP_SPEED = 10       //salita va a 10
-        setCharaPosition((charaPosition) => charaPosition - JUMP_SPEED);
-        //la pos personaggio sarà quella precedente - la velocità di salita
-      }, 24);
-    }
-      return () => {
-        clearInterval(timeId);
-      };
-    });
+    timeId = setInterval(() => {
+      setCharaPosition(charaPosition + GRAVITY);
+    }, 24);
+    return () => {
+      clearInterval(timeId);
+    };
+  }, [charaPosition]);
 
-  function handleClick() {
-    positionAtATime = charaPosition
-    setJump((jump) => jump = positionAtATime - JUMP_HEIGHT);
-    console.log(jump)
-  }
 
-  useEffect(() => {
-    let obstacleId = null;
-    if (obstacleLeft >= -OBSTACLE_WIDTH) {
-      obstacleId = setInterval(() => {
-        setObstacleLeft((obstacleLeft) => obstacleLeft - 4);
-      }, 24);
-      return () => {
-        clearInterval(obstacleId);
-      };
-    } else {
-      setObstacleLeft(BOX_WIDTH - OBSTACLE_WIDTH);
-      setObstacleHeight(Math.floor(Math.random() * (BOX_HEIGHT - 300)));
-    }
-    setScore((score) => score + 1);
-    console.log("Score", score);
-  });
-
-  function handleClick() {
-    //JUMPING UP
-    let timeId = null;
-    let jumpObjective = charaPosition - JUMP_HEIGHT;
-    console.log("jumpObjective", jumpObjective);
-    if (jumpObjective < 0) {
-      console.log("i passed the roof");
-      setCharaPosition(0);
-    } else if (charaPosition >= jumpObjective) {
-      timeId = setTimeout(() => {
-        setCharaPosition((charaPosition) => charaPosition - JUMP_SPEED);
-      }, 24);
-      console.log("charaPosition", charaPosition);
-    }
-  }
-
+  // collsion check
   useEffect(() => {
     const collisionChecker = charaPosition >= BOX_HEIGHT - obstacleHeight;
     if (
@@ -97,6 +48,29 @@ function GameBox() {
       console.log("errore");
     }
   }, [charaPosition, obstacleHeight, obstacleLeft]);
+
+  // arrivo deglio ostacoli
+  useEffect(() => {
+    let obstacleId = null;
+    if (obstacleLeft >= -OBSTACLE_WIDTH) {
+      obstacleId = setInterval(() => {
+        setObstacleLeft(obstacleLeft - 4);
+      }, 24);
+      return () => {
+        clearInterval(obstacleId);
+      };
+    } else {
+      setObstacleLeft(BOX_WIDTH - OBSTACLE_WIDTH);
+      setObstacleHeight(Math.floor(Math.random() * (BOX_HEIGHT - 300)));
+    }
+    setScore((score) => score + 1);
+    console.log("Score", score);
+  },[obstacleLeft]);
+
+  // funzione per saltare
+  function handleClick() {
+    setCharaPosition(charaPosition - JUMP_HEIGHT);
+  }
 
   return (
     <div

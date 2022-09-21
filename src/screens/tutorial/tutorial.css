@@ -1,0 +1,22 @@
+#tutorial{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
+}
+
+picture,caption{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+@media only screen and (max-width: 860px) {
+    picture,caption{
+        width: 100%;
+    }
+  }

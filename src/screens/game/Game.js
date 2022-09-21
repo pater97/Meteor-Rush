@@ -1,9 +1,12 @@
+// import css
 import '../game/game.css'
+// import lottieControll
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 function Test() {
 
         return (
+
                 <div className="container">
                         {/* layer */}
                         <div className='layer1 baseSetting'></div>
@@ -17,6 +20,7 @@ function Test() {
                         <div className="planet2"></div>
                         <div className="planet3"></div>
                         <div className="planet4"></div>
+                        {/* meteors lottie */}
                         <Player
                         className='lottiMeteors'
                                 autoplay

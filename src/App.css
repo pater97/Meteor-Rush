@@ -1,8 +1,5 @@
 .App {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 100vw;
-    min-height: 100vh;
+    background-image: url('./assets//images/layers/sky8.svg');
+    background-size: cover;
+    font-family: 'Chronosfer';
 }
