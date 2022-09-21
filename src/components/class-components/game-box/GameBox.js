@@ -12,6 +12,7 @@ function GameBox() {
   const OBSTACLE_HEIGHT = 100;
   const OBSTACLE_WIDTH = 40;
   const CHARACTER_LEFT = 50;
+  const GRAVITY = 5;
   const JUMP_HEIGHT = 200; //distanza di salto
   let JUMP_SPEED = 50; //velocità di salto
   const BASE_CHARAPOSITION = BOX_HEIGHT - 100
