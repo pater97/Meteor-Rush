@@ -69,7 +69,7 @@ class Form extends Component{
                 <Input
                     id={"username"}
                     type={"text"}
-                    placeholder={"Nome utente"}
+                    placeholder={"Username"}
                     callback={this.change}
                     isError={this.state.usernameError}
                 />

@@ -7,22 +7,18 @@ import Obstacle from "../../functional-components/obstacle/Obstacle";
 function GameBox() {
   const BOX_HEIGHT = 600;
   const BOX_WIDTH = 600;
-
+  const GRAVITY = 5
   const BALLSIZE = 30;
   const OBSTACLE_HEIGHT = 100;
   const OBSTACLE_WIDTH = 40;
   const CHARACTER_LEFT = 50;
   const GRAVITY = 5;
   const JUMP_HEIGHT = 200; //distanza di salto
-  let JUMP_SPEED = 50; //velocità di salto
-  const BASE_CHARAPOSITION = BOX_HEIGHT - 100
-  let positionAtATime
 
   const [charaPosition, setCharaPosition] = useState(200);
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
   const [obstacleLeft, setObstacleLeft] = useState(BOX_WIDTH + OBSTACLE_WIDTH);
   const [score, setScore] = useState(0);
-  const [jump, setJump] = useState(0);
 
 
   // funzione della gravità

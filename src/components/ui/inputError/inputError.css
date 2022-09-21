@@ -10,24 +10,36 @@
     height: 70%;
     width: 33%;
     font-size: 12px;
-    color: purple;
+    color: black;
     border: solid 1px;
     border-radius: 2px;
-    border-color: purple;
+    border-color: black;
     background-color: white;
     opacity: 0;
     transition: all 0.4s;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .error-icon {
     position: absolute;
     right: 5px;
     top: 6px;
-    color: purple;
+    text-align: center;
+    color: black;
     font-weight: bolder;
+    border: solid 1px;
+    border-radius: 2px;
+    border-color: black;
+    background-color: white;
+    width: 5%;
 }
 
 .hovered-input-error {
     opacity: 100;
     transition: all 0.4s;
+}
+
+.hovered-error-icon{
+    opacity: 0;
+    transition: all 0.2s;
 }
