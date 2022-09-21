@@ -8,6 +8,8 @@ function App() {
   return (
     <div className="App">
       <Login />
+      {/* <GameBox /> */}
+      <TestCanvas />
     </div>
   );
 }

@@ -5,6 +5,7 @@ return(
         style={{
           position: "absolute",
           top: props.position,
+          left: props.left,
           width: props.width,
         }}
       />)
