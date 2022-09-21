@@ -1,0 +1,10 @@
+.login-container {
+    padding: 55px 15px 37px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: url(../../assets/images/layers/loginWP.jpg);
+    background-size: cover;
+}

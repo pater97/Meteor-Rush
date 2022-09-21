@@ -1,0 +1,33 @@
+.input-error {
+    position: absolute;
+    bottom: 10px;
+    padding-left: 3px;
+    left: 67%;
+    bottom: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70%;
+    width: 33%;
+    font-size: 12px;
+    color: purple;
+    border: solid 1px;
+    border-radius: 2px;
+    border-color: purple;
+    background-color: white;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.error-icon {
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    color: purple;
+    font-weight: bolder;
+}
+
+.hovered-input-error {
+    opacity: 100;
+    transition: all 0.4s;
+}

@@ -13,3 +13,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: 'Chronosfer';
+  src: 
+      local('MyFont'),
+      url(./assets/fonts/Chronosferdemo-0WGDo.woff) format('woff'),
+      url(./assets/fonts/Chronosferdemo-0WGDo.otf) format('otf');
+  font-weight: 900;
+  font-style: normal;
+}
+
