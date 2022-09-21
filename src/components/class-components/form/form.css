@@ -9,9 +9,17 @@
     border-radius: 20px;
     box-shadow: 5px 5px 10px 0px #000000;
     background-color: transparent;
+    backdrop-filter: blur(10px);
     margin: 50px 15px;
     padding: 55px 15px 37px;
 }
+
+h1{
+    font-size: 45px;
+    color: black;
+    text-align: center;
+}
+
 
 @media only screen and (max-width: 1100px) {
 

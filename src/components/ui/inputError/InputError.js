@@ -13,7 +13,7 @@ const InputError = (props) => {
       >
         {isHovered && props.msg}
       </div>
-      <span className="error-icon">!</span>
+      <span className={isHovered ? "hovered-error-icon error-icon" : "error-icon"}>!</span>
     </>
   );
 };

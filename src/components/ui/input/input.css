@@ -8,18 +8,21 @@
 }
 
 .input-box {
-    color:black;
+    color:white;
     font-size: large;
     padding: 10px 0 10px 8px;
     border: none;
+    border-radius: 5px;
     outline: none;
     margin: auto;
+    background-color: rgb(181, 126, 220);
+    box-shadow: 5px 5px 10px 0px #000000;
 }
 
 .input-box::placeholder{
     position: relative;
     font-size: 16px;
-    color:black;
+    color:lightgray;
 }
 
 @media only screen and (min-width: 1100px) {
