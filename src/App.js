@@ -1,15 +1,20 @@
+// import routing
+import { Routes, Route, Link } from "react-router-dom";
+// import css
+// import screen
 import './App.css';
 import GameBox from './components/class-components/game-box/GameBox'
-import TestCanvas from './screens/testcanvas/TestCanvas.js'
+import Game from './screens/game/Game.js'
 import Login from './screens/login/Login';
-import './screens/testcanvas/testCanvas.css'
+
 
 function App() {
   return (
     <div className="App">
-      <Login />
-      {/* <GameBox /> */}
-      <TestCanvas />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="Game" element={<Game />} />
+      </Routes>
     </div>
   );
 }
