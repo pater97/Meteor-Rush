@@ -1,3 +1,5 @@
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
+
 function Test() {
 
         return (
@@ -14,6 +16,17 @@ function Test() {
                         <div className="planet2"></div>
                         <div className="planet3"></div>
                         <div className="planet4"></div>
+                        <Player
+                        className='lottiMeteors'
+                                autoplay
+                                loop
+                                src="https://assets6.lottiefiles.com/packages/lf20_vQfffuIbXS.json"
+                        >
+                                <Controls
+                                        visible={false}
+                                        buttons={["play", "repeat", "frame", "debug"]}
+                                />
+                        </Player>
                 </div>
         )
 }

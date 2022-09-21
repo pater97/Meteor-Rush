@@ -7,6 +7,15 @@
     background-image: url('../../assets/images/layers/sky8.svg');
     background-size: cover;
 }
+
+.lottiMeteors{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
 .baseSetting{
     width:3000px ;
     height: 100vh;
@@ -65,16 +74,20 @@
     width: 100%;
     height: 100%;
     background-position: center;
-    animation: planet-shift 10s linear infinite;
+    animation: planet-shift 400s linear infinite;
     z-index: 10;
 }
 .planet2{
     background-image: url('../../assets/images/layers/meteor1.png');
     width: 30%;
     height: 30%;
+    z-index: 10;
+
     background-size: contain;
     background-position: center;
-    animation: planet-shift 10s linear infinite;
+    margin-top: 5%;
+    margin-left: 2%;
+    animation: meteor-shift 300s linear infinite;
 }
 .planet3{
     background-image: url('../../assets/images/layers/planet-small.svg');
@@ -83,18 +96,19 @@
     background-position: center;
     filter: drop-shadow(0px 0px 10px orangered);
     z-index: 8;
-    animation: planet-small-shift 200s linear infinite;
+    animation: planet-small-shift 300s linear infinite;
 }
 .planet4{
-    background-image: url('../../assets/images/layers/meteor3.png');
-    width: 60%;
-    height: 60%;
+    background-image: url('../../assets/images/layers/saturn.png');
+    width: 30%;
+    height: 30%;
+    margin-left: 70%;
+    margin-top: 3%;
     background-position: center;
     filter: drop-shadow(0px 0px 10px orangered);
     background-size: contain;
-
     z-index: 9;
-    /* animation: planet-small-shift 20s linear infinite; */
+    animation: saturn-shift 300s linear infinite;
 }
 
 /* animazioni */
@@ -106,8 +120,13 @@
 
 /* pianeta 1 */
 @keyframes planet-shift {
+    0% {transform: scale(100%);filter: drop-shadow(0px 0px 10px blueviolet);}
+    50% {transform:scale(150%) translateY(40%);filter: drop-shadow(0px 0px 100px blueviolet)}
+    100% {transform: scale(100%);filter: drop-shadow(0px 0px 10px blueviolet);}
+}
+@keyframes meteor-shift {
     0% {transform: scale(100%);filter: drop-shadow(0px 0px 10px orange);}
-    50% {transform:scale(110%);filter: drop-shadow(0px 0px 100px orange)}
+    50% {transform:scale(110%)translate(-30%,-30%) rotate(360deg);filter: drop-shadow(0px 0px 100px orange)}
     100% {transform: scale(100%);filter: drop-shadow(0px 0px 10px orange);}
 }
 
@@ -116,5 +135,10 @@
     25% {transform:translate(100px,-300px);}
     50% {transform:translate(-300px,-400px);}
     75% {transform:translate(-250px,0px);}
+    100% {transform: translate(0,0);}
+}
+@keyframes saturn-shift {
+    0% {transform:translate(0,0) ;}
+    50% {transform:translate(-80%,0) scale(50%) rotate(180deg);}
     100% {transform: translate(0,0);}
 }
