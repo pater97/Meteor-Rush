@@ -7,51 +7,51 @@ import Obstacle from "../../functional-components/obstacle/Obstacle";
 function GameBox() {
   const BOX_HEIGHT = 600;
   const BOX_WIDTH = 600;
-  let GRAVITY = 5; //velocità di discesa
+
   const BALLSIZE = 30;
   const OBSTACLE_HEIGHT = 100;
   const OBSTACLE_WIDTH = 40;
   const CHARACTER_LEFT = 50;
   const JUMP_HEIGHT = 200; //distanza di salto
-  let JUMP_SPEED = 50; //velocità di salto
-  const BASE_CHARAPOSITION = BOX_HEIGHT-100
-  let positionAtATime
+  let gravity = 5; //velocità di discesa
 
   const [charaPosition, setCharaPosition] = useState(200);
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
   const [obstacleLeft, setObstacleLeft] = useState(BOX_WIDTH + OBSTACLE_WIDTH);
   const [score, setScore] = useState(0);
+  const [jump, setJump] = useState(false);
 
 
   useEffect(() => {
     //FALLING DOWN
     let timeId = null;
-    
-    if (charaPosition < BOX_HEIGHT - 100) { //se pos. personaggio minore del terreno
+    if (charaPosition < BOX_HEIGHT - 100 && jump === false) {
+      //se pos. personaggio minore del terreno
       timeId = setInterval(() => {
-        GRAVITY = 5                 //gravità è 5
-        JUMP_SPEED = 0              //velocità di salto è 0
-        setCharaPosition((charaPosition) => charaPosition + GRAVITY);
-        //la pos personaggio sarà quella precedente + la velocità di discesa
+        setCharaPosition((charaPosition) => charaPosition + gravity);
+        console.log('if');
+        console.log(charaPosition);
+        console.log(jump)
       }, 24);
-    } else if (charaPosition > jump) { //se la pos. personaggio è maggiore(più in basso) di jump
-      timeId = setInterval(() => {
-        GRAVITY = 0           //discesa torna a 0
-        JUMP_SPEED = 10       //salita va a 10
-        setCharaPosition((charaPosition) => charaPosition - JUMP_SPEED);
-        //la pos personaggio sarà quella precedente - la velocità di salita
-      }, 24);
-    }
-      return () => {
-        clearInterval(timeId);
-      };
-    });
+    } 
+    return () => {
+      clearInterval(timeId);
+    };
+  });
 
   function handleClick() {
-    positionAtATime = charaPosition
-    setJump((jump) => jump = positionAtATime - JUMP_HEIGHT);
-    console.log(jump)
+    setCharaPo
+    // setTimeout(()=> {
+    //   flipJump = !flipJump
+    //   setJump(flipJump)
+    // }, 2000) 
   }
+  // function handleClick() {
+  //   console.log('ciao',jump)
+  //   let flipJump = !jump
+  //   setJump(flipJump);
+    
+  // }
 
   useEffect(() => {
     let obstacleId = null;
@@ -70,7 +70,7 @@ function GameBox() {
     console.log("Score", score);
   });
 
-  function handleClick() {
+  /*function handleLEClick() {
     //JUMPING UP
     let timeId = null;
     let jumpObjective = charaPosition - JUMP_HEIGHT;
@@ -84,7 +84,7 @@ function GameBox() {
       }, 24);
       console.log("charaPosition", charaPosition);
     }
-  }
+  }*/
 
   useEffect(() => {
     const collisionChecker = charaPosition >= BOX_HEIGHT - obstacleHeight;
