@@ -7,13 +7,15 @@ import Obstacle from "../../functional-components/obstacle/Obstacle";
 function GameBox() {
   const BOX_HEIGHT = 600;
   const BOX_WIDTH = 600;
-  const GRAVITY = 5;
+  let GRAVITY = 5; //velocità di discesa
   const BALLSIZE = 30;
-  const JUMP_HEIGHT = 200;
   const OBSTACLE_HEIGHT = 100;
   const OBSTACLE_WIDTH = 40;
   const CHARACTER_LEFT = 50;
-  const JUMP_SPEED = 10;
+  const JUMP_HEIGHT = 200; //distanza di salto
+  let JUMP_SPEED = 50; //velocità di salto
+  const BASE_CHARAPOSITION = BOX_HEIGHT-100
+  let positionAtATime
 
   const [charaPosition, setCharaPosition] = useState(200);
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
@@ -25,12 +27,21 @@ function GameBox() {
   useEffect(() => {
     //FALLING DOWN
     let timeId = null;
-    if (charaPosition < BOX_HEIGHT - 100 + jump) { //rimuovere jump
+    
+    if (charaPosition < BOX_HEIGHT - 100) { //se pos. personaggio minore del terreno
       timeId = setInterval(() => {
+        GRAVITY = 5                 //gravità è 5
+        JUMP_SPEED = 0              //velocità di salto è 0
         setCharaPosition((charaPosition) => charaPosition + GRAVITY);
+        //la pos personaggio sarà quella precedente + la velocità di discesa
       }, 24);
-    } else if (charaPosition > BOX_HEIGHT - 100 + jump) { // rimuovere questo
-      setCharaPosition ((charaPosition) => charaPosition - JUMP_SPEED)
+    } else if (charaPosition > jump) { //se la pos. personaggio è maggiore(più in basso) di jump
+      timeId = setInterval(() => {
+        GRAVITY = 0           //discesa torna a 0
+        JUMP_SPEED = 10       //salita va a 10
+        setCharaPosition((charaPosition) => charaPosition - JUMP_SPEED);
+        //la pos personaggio sarà quella precedente - la velocità di salita
+      }, 24);
     }
     return () => {
       clearInterval(timeId);
@@ -38,7 +49,9 @@ function GameBox() {
   });
 
   function handleClick() {
-    setJump((jump) => charaPosition - JUMP_HEIGHT);
+    positionAtATime = charaPosition
+    setJump((jump) => jump = positionAtATime - JUMP_HEIGHT);
+    console.log(jump)
   }
 
   useEffect(() => {
