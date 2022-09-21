@@ -7,7 +7,7 @@ import './screens/testcanvas/testCanvas.css'
 function App() {
   return (
     <div className="App">
-      <GameBox />
+      {/* <GameBox /> */}
       <TestCanvas />
     </div>
   );

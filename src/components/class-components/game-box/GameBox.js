@@ -21,8 +21,7 @@ function GameBox() {
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
   const [obstacleLeft, setObstacleLeft] = useState(BOX_WIDTH + OBSTACLE_WIDTH);
   const [score, setScore] = useState(0);
-  const [collider, setCollider] = useState(false);
-  const [jump, setJump] = useState(0);
+
 
   useEffect(() => {
     //FALLING DOWN
@@ -43,10 +42,10 @@ function GameBox() {
         //la pos personaggio sarà quella precedente - la velocità di salita
       }, 24);
     }
-    return () => {
-      clearInterval(timeId);
-    };
-  });
+      return () => {
+        clearInterval(timeId);
+      };
+    });
 
   function handleClick() {
     positionAtATime = charaPosition
@@ -71,7 +70,7 @@ function GameBox() {
     console.log("Score", score);
   });
 
-  function handleLEClick() {
+  function handleClick() {
     //JUMPING UP
     let timeId = null;
     let jumpObjective = charaPosition - JUMP_HEIGHT;
@@ -80,14 +79,11 @@ function GameBox() {
       console.log("i passed the roof");
       setCharaPosition(0);
     } else if (charaPosition >= jumpObjective) {
-      timeId = setInterval(() => {
+      timeId = setTimeout(() => {
         setCharaPosition((charaPosition) => charaPosition - JUMP_SPEED);
       }, 24);
       console.log("charaPosition", charaPosition);
     }
-    return () => {
-      clearInterval(timeId);
-    };
   }
 
   useEffect(() => {
