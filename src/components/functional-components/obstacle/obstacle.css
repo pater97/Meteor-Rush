@@ -1,0 +1,23 @@
+.obstacle-container{
+  object-fit: contain;
+}
+
+img{
+    animation: meteor 3s linear infinite;
+}
+
+/* animazioni */
+@keyframes meteor {
+  0% {
+    filter: drop-shadow(0px 0px 10px orangered);
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+    filter: drop-shadow(0px 0px 100px orangered);
+  }
+  100% {
+    filter: drop-shadow(0px 0px 10px orangered);
+    transform: rotate(360deg);
+  }
+}

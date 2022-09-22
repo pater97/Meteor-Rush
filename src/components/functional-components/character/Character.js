@@ -22,12 +22,14 @@ function Character(props) {
   }, [])
 
   return (
-    <div className='sprite-container'
+    <div
+      id='sprite-container'
+      className='sprite-container'
       style={{
         position: "absolute",
         top: props.position,
         left: props.left,
-        transition: 'all 500ms',
+        transition: 'linear all 500ms',
       }}
     >
       <div className="sprite" style={style} />

@@ -1,17 +1,25 @@
-
+import './obstacle.css';
 
 function Obstacle(props) {
   return (
-    <img
-      src={props.img}
+    <div
+      id='obstacle-container'
+      className='obstacle-container'
       style={{
-        overflow:"hidden",
-        position: "relative",
+        overflow: "hidden",
+        position: "absolute",
         top: props.positionTop,
-        left:props.positionLeft,
+        left: props.positionLeft,
         width: props.width,
       }}
-    />
+    >
+      <img
+        src={props.img}
+        style={{
+          width: props.width,
+        }}
+      />
+    </div>
   );
 }
 
