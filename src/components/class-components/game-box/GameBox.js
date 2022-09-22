@@ -15,24 +15,24 @@ function GameBox() {
   const CHARACTER_LEFT = 50;
   const JUMP_HEIGHT = 200; //distanza di salto
 
-  const [charaPosition, setCharaPosition] = useState(200);
+  const [charaPosition, setCharaPosition] = useState(80);
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
   const [obstacleLeft, setObstacleLeft] = useState(BOX_WIDTH + OBSTACLE_WIDTH);
   const [score, setScore] = useState(0);
-
 
   // funzione della gravità
   useEffect(() => {
     //FALLING DOWN
     let timeId = null;
-    timeId = setInterval(() => {
-      setCharaPosition(charaPosition + GRAVITY);
-    }, 24);
+    if (charaPosition < BOX_HEIGHT - 20) {
+      timeId = setInterval(() => {
+        setCharaPosition(charaPosition + GRAVITY);
+      }, 24);
+    }
     return () => {
       clearInterval(timeId);
     };
   }, [charaPosition]);
-
 
   // collsion check
   useEffect(() => {
@@ -62,20 +62,20 @@ function GameBox() {
     }
     setScore((score) => score + 1);
     console.log("Score", score);
-  },[obstacleLeft]);
+  }, [obstacleLeft]);
 
   // funzione per saltare
   function handleClick() {
     setCharaPosition(charaPosition - JUMP_HEIGHT);
   }
 
+  function getBottom() {}
+
   return (
     <div
+      id="gamebox"
       onClick={handleClick}
       style={{
-        width: BOX_WIDTH,
-        height: BOX_HEIGHT,
-        backgroundColor: "blue",
         overflow: "hidden",
       }}
     >

@@ -20,7 +20,6 @@ function App() {
         <Route path="game" element={<Game />} />
         <Route path="game-over" element={<GameOver />} />
         <Route path="rank" element={<Rank />} />
-        <Route path="gamebox" element={<GameBox />} />
       </Routes>
     </div>
   );

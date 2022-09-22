@@ -1,5 +1,6 @@
 // import css
 import '../game/game.css'
+import GameBox from '../../components/class-components/game-box/GameBox';
 // import lottieControll
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
@@ -32,6 +33,7 @@ function Test() {
                                         buttons={["play", "repeat", "frame", "debug"]}
                                 />
                         </Player>
+                        <GameBox/>
                 </div>
         )
 }
