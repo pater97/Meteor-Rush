@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import Ball from "../../../assets/images/ball.png";
+import amogus from "../../../assets/images/amogus.png";
 import Column from "../../../assets/images/column.png";
 import Character from "../../functional-components/character/Character";
 import Obstacle from "../../functional-components/obstacle/Obstacle";
-import sideAnimation from "../../../assets/images/amogus.png";
+
 
 function GameBox() {
-  const BOX_HEIGHT = 600;
-  const BOX_WIDTH = 600;
-  const GRAVITY = 5
-  const BALLSIZE = 30;
-  const OBSTACLE_HEIGHT = 100;
-  const OBSTACLE_WIDTH = 40;
-  const CHARACTER_LEFT = 50;
-  const JUMP_HEIGHT = 200; //distanza di salto
+  const BOX_HEIGHT = 100;
+  const BOX_WIDTH = 100;
+  const GRAVITY = 3;
+  const BALLSIZE = 30; //verrà rimosso
+  const OBSTACLE_HEIGHT = 15;
+  const OBSTACLE_WIDTH = 21;
+  const CHARACTER_LEFT = 30;
+  const JUMP_HEIGHT = 50; //distanza di salto
 
-  const [charaPosition, setCharaPosition] = useState(80);
+  const [charaPosition, setCharaPosition] = useState(10);
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
   const [obstacleLeft, setObstacleLeft] = useState(BOX_WIDTH + OBSTACLE_WIDTH);
   const [score, setScore] = useState(0);
@@ -69,8 +69,6 @@ function GameBox() {
     setCharaPosition(charaPosition - JUMP_HEIGHT);
   }
 
-  function getBottom() {}
-
   return (
     <div
       id="gamebox"
@@ -80,9 +78,9 @@ function GameBox() {
       }}
     >
       <Character
-        img={sideAnimation}
-        position={charaPosition}
-        left={CHARACTER_LEFT}
+        img={amogus}
+        position={`${charaPosition.toString() + "vh"}`}
+        left={`${CHARACTER_LEFT.toString() + "vw"}`}
         width={BALLSIZE}
       />
 
