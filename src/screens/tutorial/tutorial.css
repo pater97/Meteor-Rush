@@ -1,4 +1,4 @@
-#tutorial{
+#tutorial {
     height: 100%;
     width: 100%;
     display: flex;
@@ -6,7 +6,8 @@
     padding: 5%;
 }
 
-picture,caption{
+picture,
+.caption {
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -15,8 +16,39 @@ picture,caption{
     z-index: 10;
 }
 
+.caption {
+    align-items: flex-start !important;
+}
+
+.button-container {
+    margin-top: 0 !important;
+}
+
+h1 {
+    color: silver;
+    font-weight: bold;
+    filter: drop-shadow(2px 4px 6px orangered);
+    text-align: start;
+}
+
+ul {
+    list-style: none;
+    text-align: start;
+    line-height: 3rem;
+    padding: 2rem 0;
+    color: silver;
+    font-size: 25px;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+ul i {
+    color: orangered;
+}
+
 @media only screen and (max-width: 860px) {
-    picture,caption{
+
+    picture,
+    .caption {
         width: 100%;
     }
-  }
+}

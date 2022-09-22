@@ -3,8 +3,12 @@ import '../tutorial/tutorial.css'
 // import lotti
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
+import Button from '../../components/ui/button/Button'
+
 
 function Tutorial() {
+
+
     return (
         <div id='tutorial'>
             {/* meteors lottie */}
@@ -32,29 +36,30 @@ function Tutorial() {
                     />
                 </Player>
             </picture>
-            <caption>
+            <div className='caption'>
                 <h1>
                     OH NO! <br />
-                    IL PIANETA STA PER ESPLODERE A CAUSA DELLE METEORITI
+                    IL PIANETA STA PER ESPLODERE A CAUSA DELLE METEORITI <br />
+                    DEVI FUGGIRE!
                 </h1>
-                <p>
-                    Devi fuggire
-                    <ul>
-                        <li>
-                        <i class="fa-solid fa-meteor"></i> | <span>Evita le meteore lungo il cammino</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-computer-mouse"></i> | <span>premi il tasto sinistro per eseguire il salto</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-hand-pointer"></i> | <span>Tappa nel caso in cui sei su mobile</span>
-                        </li>
-                        <li>
-                            <i class="fa-solid fa-person-running"></i> | <span>Corri più che puoi e cerca di raggiungere il massimo risultato per fuggire</span>
-                        </li>
-                    </ul>
-                </p>
-            </caption>
+                <ul>
+                    <li>
+                        <i className="fa-solid fa-meteor"></i> | <span>Evita le meteore lungo il cammino</span>
+                    </li>
+                    <li>
+                        <i className="fa-solid fa-computer-mouse"></i> | <span>premi il tasto sinistro per eseguire il salto</span>
+                    </li>
+                    <li>
+                        <i className="fa-solid fa-hand-pointer"></i> | <span>Tappa nel caso in cui sei su mobile</span>
+                    </li>
+                    <li>
+                        <i className="fa-solid fa-person-running"></i> | <span>Corri più che puoi e raggiungi il massimo risultato</span>
+                    </li>
+                </ul>
+                <Button
+                    label={'SONO PRONTO'}
+                />
+            </div>
         </div>
     )
 }
