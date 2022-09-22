@@ -6,14 +6,14 @@ import Obstacle from "../../functional-components/obstacle/Obstacle";
 import sideAnimation from "../../../assets/images/amogus.png";
 
 function GameBox() {
-  const BOX_HEIGHT = 600;
-  const BOX_WIDTH = 600;
-  const GRAVITY = 5
-  const BALLSIZE = 30;
-  const OBSTACLE_HEIGHT = 100;
-  const OBSTACLE_WIDTH = 40;
-  const CHARACTER_LEFT = 50;
-  const JUMP_HEIGHT = 200; //distanza di salto
+  const BOX_HEIGHT = 100;
+  const BOX_WIDTH = 100;
+  const GRAVITY = 3;
+  const BALLSIZE = 30; //verrà rimosso
+  const OBSTACLE_HEIGHT = 15;
+  const OBSTACLE_WIDTH = 21;
+  const CHARACTER_LEFT = 30;
+  const JUMP_HEIGHT = 50; //distanza di salto
 
   const [charaPosition, setCharaPosition] = useState(80);
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
@@ -80,9 +80,9 @@ function GameBox() {
       }}
     >
       <Character
-        img={sideAnimation}
-        position={charaPosition}
-        left={CHARACTER_LEFT}
+        img={Ball}
+        position={`${charaPosition.toString() + "vh"}`}
+        left={`${CHARACTER_LEFT.toString() + "vh"}`}
         width={BALLSIZE}
       />
 
