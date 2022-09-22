@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Ball from "../../../assets/images/ball.png";
+import amogus from "../../../assets/images/amogus.png";
 import Column from "../../../assets/images/column.png";
 import Character from "../../functional-components/character/Character";
 import Obstacle from "../../functional-components/obstacle/Obstacle";
-import sideAnimation from "../../../assets/images/amogus.png";
+
 
 function GameBox() {
   const BOX_HEIGHT = 100;
@@ -15,7 +15,7 @@ function GameBox() {
   const CHARACTER_LEFT = 30;
   const JUMP_HEIGHT = 50; //distanza di salto
 
-  const [charaPosition, setCharaPosition] = useState(80);
+  const [charaPosition, setCharaPosition] = useState(10);
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
   const [obstacleLeft, setObstacleLeft] = useState(BOX_WIDTH + OBSTACLE_WIDTH);
   const [score, setScore] = useState(0);
@@ -69,8 +69,6 @@ function GameBox() {
     setCharaPosition(charaPosition - JUMP_HEIGHT);
   }
 
-  function getBottom() {}
-
   return (
     <div
       id="gamebox"
@@ -80,9 +78,9 @@ function GameBox() {
       }}
     >
       <Character
-        img={Ball}
+        img={amogus}
         position={`${charaPosition.toString() + "vh"}`}
-        left={`${CHARACTER_LEFT.toString() + "vh"}`}
+        left={`${CHARACTER_LEFT.toString() + "vw"}`}
         width={BALLSIZE}
       />
 
