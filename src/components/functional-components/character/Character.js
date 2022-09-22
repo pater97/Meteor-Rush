@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSprite } from 'react-sprite-animator';
+import './character.css';
 
 function Character(props) {
 
@@ -7,7 +8,7 @@ function Character(props) {
     sprite: props.img,
     width: 128,
     height: 150,
-    scale: 1,
+    scale: props.size,
     shouldAnimate: true,
     startFrame: 0,
     fps: 10,
@@ -21,20 +22,16 @@ function Character(props) {
   }, [])
 
   return (
-    <>
-      <div
-        src={props.img}
-        style={{
-          position: "absolute",
-          top: props.position,
-          left: props.left,
-          width: props.width,
-          transition: 'all 500ms',
-          bottom: props.bottom
-        }}
-      />
-      <div style={style} />
-    </>
+    <div className='sprite-container'
+      style={{
+        position: "absolute",
+        top: props.position,
+        left: props.left,
+        transition: 'all 500ms',
+      }}
+    >
+      <div className="sprite" style={style} />
+    </div>
   )
 }
 

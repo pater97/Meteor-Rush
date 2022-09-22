@@ -9,16 +9,16 @@ function GameBox() {
   const BOX_HEIGHT = 100;
   const BOX_WIDTH = 100;
   const GRAVITY = 3;
-  const BALLSIZE = 30; //verrà rimosso
   const OBSTACLE_HEIGHT = 15;
   const OBSTACLE_WIDTH = 21;
   const CHARACTER_LEFT = 30;
   const JUMP_HEIGHT = 50; //distanza di salto
 
-  const [charaPosition, setCharaPosition] = useState(10);
+  const [charaPosition, setCharaPosition] = useState(50);
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
   const [obstacleLeft, setObstacleLeft] = useState(BOX_WIDTH + OBSTACLE_WIDTH);
   const [score, setScore] = useState(0);
+  const [size, setSize] = useState(1);
 
   // funzione della gravità
   useEffect(() => {
@@ -64,6 +64,17 @@ function GameBox() {
     console.log("Score", score);
   }, [obstacleLeft]);
 
+  //modifica size dello sprite
+  useEffect(() => {
+
+    if(window.screen.height < 700){
+      setSize(2);
+    } else {
+      setSize(1);
+    }
+
+  }, [window.screen.height]);
+
   // funzione per saltare
   function handleClick() {
     setCharaPosition(charaPosition - JUMP_HEIGHT);
@@ -81,7 +92,7 @@ function GameBox() {
         img={amogus}
         position={`${charaPosition.toString() + "vh"}`}
         left={`${CHARACTER_LEFT.toString() + "vw"}`}
-        width={BALLSIZE}
+        size={size}
       />
 
       <Obstacle

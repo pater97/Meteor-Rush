@@ -192,3 +192,9 @@
   left: 0;
   z-index:110
 }
+
+@media only screen and (max-height: 700px){
+  #gamebox{
+      position: relative;
+  }
+}
