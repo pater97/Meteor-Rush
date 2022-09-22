@@ -3,6 +3,7 @@ import Ball from "../../../assets/images/ball.png";
 import Column from "../../../assets/images/column.png";
 import Character from "../../functional-components/character/Character";
 import Obstacle from "../../functional-components/obstacle/Obstacle";
+import sideAnimation from "../../../assets/images/amogus.png";
 
 function GameBox() {
   const BOX_HEIGHT = 600;
@@ -12,7 +13,6 @@ function GameBox() {
   const OBSTACLE_HEIGHT = 100;
   const OBSTACLE_WIDTH = 40;
   const CHARACTER_LEFT = 50;
-  const GRAVITY = 5;
   const JUMP_HEIGHT = 200; //distanza di salto
 
   const [charaPosition, setCharaPosition] = useState(200);
@@ -80,7 +80,7 @@ function GameBox() {
       }}
     >
       <Character
-        img={Ball}
+        img={sideAnimation}
         position={charaPosition}
         left={CHARACTER_LEFT}
         width={BALLSIZE}
