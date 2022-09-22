@@ -7,7 +7,8 @@ return(
           top: props.position,
           left: props.left,
           width: props.width,
-          transition: 'all 500ms'
+          transition: 'all 500ms',
+          bottom: props.bottom
         }}
       />)
 }

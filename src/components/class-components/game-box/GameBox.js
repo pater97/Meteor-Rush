@@ -5,34 +5,33 @@ import Character from "../../functional-components/character/Character";
 import Obstacle from "../../functional-components/obstacle/Obstacle";
 
 function GameBox() {
-  const BOX_HEIGHT = 600;
-  const BOX_WIDTH = 600;
-  const GRAVITY = 5
-  const BALLSIZE = 30;
-  const OBSTACLE_HEIGHT = 100;
-  const OBSTACLE_WIDTH = 40;
-  const CHARACTER_LEFT = 50;
-  const GRAVITY = 5;
-  const JUMP_HEIGHT = 200; //distanza di salto
+  const BOX_HEIGHT = 100;
+  const BOX_WIDTH = 100;
+  const GRAVITY = 3;
+  const BALLSIZE = 30; //verrà rimosso
+  const OBSTACLE_HEIGHT = 15;
+  const OBSTACLE_WIDTH = 21;
+  const CHARACTER_LEFT = 30;
+  const JUMP_HEIGHT = 50; //distanza di salto
 
-  const [charaPosition, setCharaPosition] = useState(200);
+  const [charaPosition, setCharaPosition] = useState(80);
   const [obstacleHeight, setObstacleHeight] = useState(OBSTACLE_HEIGHT);
   const [obstacleLeft, setObstacleLeft] = useState(BOX_WIDTH + OBSTACLE_WIDTH);
   const [score, setScore] = useState(0);
-
 
   // funzione della gravità
   useEffect(() => {
     //FALLING DOWN
     let timeId = null;
-    timeId = setInterval(() => {
-      setCharaPosition(charaPosition + GRAVITY);
-    }, 24);
+    if (charaPosition < BOX_HEIGHT - 20) {
+      timeId = setInterval(() => {
+        setCharaPosition(charaPosition + GRAVITY);
+      }, 24);
+    }
     return () => {
       clearInterval(timeId);
     };
   }, [charaPosition]);
-
 
   // collsion check
   useEffect(() => {
@@ -62,27 +61,27 @@ function GameBox() {
     }
     setScore((score) => score + 1);
     console.log("Score", score);
-  },[obstacleLeft]);
+  }, [obstacleLeft]);
 
   // funzione per saltare
   function handleClick() {
     setCharaPosition(charaPosition - JUMP_HEIGHT);
   }
 
+  function getBottom() {}
+
   return (
     <div
+      id="gamebox"
       onClick={handleClick}
       style={{
-        width: BOX_WIDTH,
-        height: BOX_HEIGHT,
-        backgroundColor: "blue",
         overflow: "hidden",
       }}
     >
       <Character
         img={Ball}
-        position={charaPosition}
-        left={CHARACTER_LEFT}
+        position={`${charaPosition.toString() + "vh"}`}
+        left={`${CHARACTER_LEFT.toString() + "vh"}`}
         width={BALLSIZE}
       />
 
