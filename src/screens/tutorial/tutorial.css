@@ -41,6 +41,9 @@ picture,
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
+    font-size: 2em;
 }
 .caption .button-container:hover{
     transform: scale(110%);
