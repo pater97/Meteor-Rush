@@ -199,8 +199,8 @@
   }
 }
 
-.btn-start {
-  position: absolute;
+.game  .button-container {
+    position: absolute;
     z-index: 1000;
     background-color: transparent !important;
     border: solid white;
@@ -219,20 +219,23 @@
     color: rgb(251 196 89);
     width: 30vw;
     height: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.btn-start:hover{
+.game  .button-container:hover{
   box-shadow: inset 0px 0px 15px 10px purple;
 }
 
 @media only screen and (max-width: 600px) {
-  .btn-start{
+  .game  .button-container{
     width: 40%;
     font-size: 1.8rem;
   }
 }
 @media only screen and (max-height: 400px) {
-  .btn-start{
+  .game  .button-container{
     width: 40%;
     font-size: 2.2rem;
   }

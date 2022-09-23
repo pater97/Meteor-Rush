@@ -30,6 +30,33 @@
     margin-bottom: 1rem;
 }
 
+.register-container .button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 120px;
+    height: 50px;
+    border-radius: 20px;
+    margin-top: 5%;
+    box-shadow: 5px 5px 10px 0px #000000;
+    border: 2px solid silver;
+    background-color: black;
+    border: none;
+    font-family: 'Chronosfer';
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: silver;
+    letter-spacing: 5px;
+}
+
+.register-container .button-container:hover{
+    background: purple;
+    transform: scale(110%);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
 /*.container-register form{
     display: flex;
     flex-direction: column;

@@ -20,9 +20,6 @@ picture,
     align-items: flex-start !important;
 }
 
-.caption .button-container {
-    margin-top: 0 !important;
-}
 
 .caption h1 {
     color: silver;
@@ -30,7 +27,7 @@ picture,
     filter: drop-shadow(2px 4px 6px orangered);
     text-align: start;
 }
-.caption button{
+.caption .button-container{
     background-color: orangered;
     padding: 1rem 2rem;
     border: none;
@@ -41,8 +38,11 @@ picture,
     transition: all .3s ease-in-out;
     border-radius: 10px;
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.caption button:hover{
+.caption .button-container:hover{
     transform: scale(110%);
 }
 

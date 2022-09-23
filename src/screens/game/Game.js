@@ -36,7 +36,7 @@ function Game() {
     }
   })
   return (
-    <div className="container">
+    <div className="container game">
       {/* layer */}
       <div className="layer1 baseSetting"></div>
       <div className="layer2 baseSetting"></div>
