@@ -15,29 +15,29 @@ import Character from "../../functional-components/character/Character";
 import Obstacle from "../../functional-components/obstacle/Obstacle";
 import { useNavigate } from "react-router-dom";
 
-const jump = new Howl({
-  src: Jump,
-  html5: true,
-  autoplay: true,
-  loop: true,
-  volume: 0.2,
-});
+// const jump = new Howl({
+//   src: Jump,
+//   html5: true,
+//   autoplay: true,
+//   loop: true,
+//   volume: 0.2,
+// });
 
-const point = new Howl({
-  src: Point,
-  html5: true,
-  autoplay: true,
-  loop: true,
-  volume: 0.2,
-});
+// const point = new Howl({
+//   src: Point,
+//   html5: true,
+//   autoplay: true,
+//   loop: true,
+//   volume: 0.2,
+// });
 
-const hit = new Howl({
-  src: Hit,
-  html5: true,
-  autoplay: true,
-  loop: true,
-  volume: 0.2,
-});
+// const hit = new Howl({
+//   src: Hit,
+//   html5: true,
+//   autoplay: true,
+//   loop: true,
+//   volume: 0.2,
+// });
 
 function GameBox() {
   
@@ -46,6 +46,7 @@ function GameBox() {
   const GRAVITY = 10;
   const CHARACTER_LEFT = 20;
   const JUMP_HEIGHT = 1000; //distanza di salto
+  let user = {}
 
   const [charaPosition, setCharaPosition] = useState(80);
   const [score, setScore] = useState(0);
@@ -95,8 +96,9 @@ function GameBox() {
     );
 
     if (collisionChecker) {
-      hit.once()
+      // hit.once()
       navigate("/gameover")
+  
     }
   }, [charaPosition, obstacle]);
   //
