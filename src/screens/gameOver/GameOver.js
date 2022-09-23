@@ -11,7 +11,7 @@ function GameOver() {
     let navigate = useNavigate()
 
     function playAgain(){
-        navigate('/')
+        navigate('/game')
     }
 
     function goTo(){
