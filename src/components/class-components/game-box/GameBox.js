@@ -40,7 +40,8 @@ function GameBox() {
   const GRAVITY = 10;
   const CHARACTER_LEFT = 20;
   const JUMP_HEIGHT = 1000; //distanza di salto
-  let user = {}
+  
+  let users = []
 
   const [charaPosition, setCharaPosition] = useState(80);
   const [score, setScore] = useState(0);
@@ -144,6 +145,24 @@ function GameBox() {
       setCharaPosition(charaPosition - JUMP_HEIGHT);
     }
   }
+
+  //componentWillUnmount
+  useEffect(() => {
+    return () => {
+      users = JSON.parse(localStorage.getItem("users"))
+      let currUser = JSON.parse(localStorage.getItem("currUser"))
+
+      users.forEach((element) => {
+        if(element.email === currUser.email){
+          if(element.score < score) {
+            element.score = score
+          }
+        }
+      })
+
+      localStorage.setItem('users', JSON.stringify(users))
+    }
+  });
 
   return (
     <div
