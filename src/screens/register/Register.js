@@ -1,63 +1,156 @@
 // import react component
 import { Component } from "react"
+
 // importo il routing 
 import withRouter from "../../withRouter";
+
 // import components
 import Button from "../../components/ui/button/PersonalButton"
 import InputBox from "../../components/ui/input/InputBox"
+
 // css
 import './register.css'
 
 
 class Register extends Component {
   constructor(props) {
-    
+
     super(props)
-    this.user =
-      {
-      name: '',
-      mail: '',
-      score: 0
-      }
+    
+    this.user = []
+    if(JSON.parse(localStorage.getItem("user"))){
+      this.user = JSON.parse(localStorage.getItem("user"))
+    }
+
+    this.state = {
+      usernameError: false,
+      emailError: false,
+      passwordError: false
+    }
+
+    this.usernameHandler = "";
+    this.emailHandler = "";
+    this.passwordHandler = "";
+
   }
 
-  // pass input value to App
-  getValue(e) {
-    this.user.name = e.target.value
-    console.log(this.user.name)
+  change = (e) => {
+
+    switch (e.target.id) {
+      case "username":
+        this.usernameHandler = e.target.value;
+        break;
+
+      case "email":
+        this.emailHandler = e.target.value;
+        break;
+
+      case "password":
+        this.passwordHandler = e.target.value;
+        break;
+    }
   }
 
-  getEmail(e) {
-    this.user.mail = e.target.value
+  clickButton = () => {
+
+    let userState = this.user;
+
+    if(!(this.handleError())){
+
+      userState.push({
+        name: this.usernameHandler,
+        email: this.emailHandler,
+        password: this.passwordHandler,
+        score: 0
+      })
+
+      localStorage.setItem('user', JSON.stringify(userState))
+      this.props.router.navigate('/')
+    }
   }
 
-  clickButton() {
-    console.log(this.user)
-    localStorage.setItem('user', JSON.stringify(this.user))
-    this.props.router.navigate('/Game')
+  handleError() {
+    
+    let state = this.state;
+    let user = this.user;
+    let error = false;
+
+    if (this.usernameHandler === "") {
+      state.usernameError = true;
+      error = true;
+      console.log("username error");
+    } else {
+      state.usernameError = false;
+      user.name = this.usernameHandler;
+      console.log("Username:", this.usernameHandler);
+    }
+
+    if (
+      this.emailHandler === "" || 
+      /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.emailHandler) === false
+    ) {
+      state.emailError = true;
+      error = true;
+      console.log("email error");
+    } else {
+      state.emailError = false;
+      user.email = this.emailHandler;
+      console.log("Email:", this.emailHandler);
+    }
+
+    if (this.passwordHandler === "") {
+      state.passwordError = true;
+      error = true;
+      console.log("password error");
+    } else {
+      state.passwordError = false;
+      user.password = this.passwordHandler;
+      console.log("Password:", this.passwordHandler);
+    }
+
+    this.setState(state);
+    return error;
   }
 
   render() {
     return (
       <div className="register">
-        <div className="container-register">
-            <h1>REGISTER</h1>
-            <form>
+        <form className="register-container">
+          <h1>REGISTER</h1>
+            
             <InputBox
-                placeholder={"Inserisci il tuo nome"}
-                callBack={this.getValue.bind(this)}
+              id={"username"}
+              type={"text"}
+              placeholder={"USERNAME"}
+              callBack={this.change}
+              isError={this.state.usernameError}
+              msg={"Enter username"}
             />
+
             <InputBox
-                placeholder={"Inserisci la tua email"}
-                callBack={this.getEmail.bind(this)}
-                type={"email"}
+              id={"email"}
+              type={"email"}
+              placeholder={"EMAIL"}
+              callBack={this.change}
+              isError={this.state.emailError}
+              msg={"Enter a valid email"}
             />
+
+            <InputBox
+              id={"password"}
+              type={"password"}
+              placeholder={"PASSWORD"}
+              callBack={this.change}
+              isError={this.state.passwordError}
+              msg={"Enter password"}
+            />
+
             <Button
-                label={"Inizia la sfida"}
-                callBack={this.clickButton.bind(this)}
+              callBack={this.clickButton}
+              label={"REGISTRATI"}
             />
-            </form>
-        </div>
+
+        </form>
       </div>
     )
   }

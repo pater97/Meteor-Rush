@@ -1,19 +1,46 @@
 import { useEffect, useState } from "react";
 import { Howl, Howler } from "howler";
-
+import "./gamebox.css"
 
 //img
 import amogus from "../../../assets/images/amogus.png";
 import Column from "../../../assets/images/column.png";
 import Meteor from "../../../assets/images/layers/meteor-square.png";
+import Jump from "../../../assets/audios/Jump.wav"
+import Hit from "../../../assets/audios/Explosion.wav"
+import Point from "../../../assets/audios/Point.wav"
 
 //components
 import Character from "../../functional-components/character/Character";
 import Obstacle from "../../functional-components/obstacle/Obstacle";
+import { useNavigate } from "react-router-dom";
 
+const jump = new Howl({
+  src: Jump,
+  html5: true,
+  autoplay: true,
+  loop: true,
+  volume: 0.2,
+});
 
+const point = new Howl({
+  src: Point,
+  html5: true,
+  autoplay: true,
+  loop: true,
+  volume: 0.2,
+});
+
+const hit = new Howl({
+  src: Hit,
+  html5: true,
+  autoplay: true,
+  loop: true,
+  volume: 0.2,
+});
 
 function GameBox() {
+  
   const BOX_HEIGHT = 100;
   const BOX_WIDTH = window.screen.width;
   const GRAVITY = 10;
@@ -36,6 +63,8 @@ function GameBox() {
     },
   ]);
 
+  
+  let navigate = useNavigate()
   // funzione della gravità
   useEffect(() => {
     //FALLING DOWN
@@ -66,10 +95,12 @@ function GameBox() {
     );
 
     if (collisionChecker) {
-      console.log("errore");
+      hit.once()
+      navigate("/gameover")
     }
   }, [charaPosition, obstacle]);
-
+  //
+  //Riposiziona i meteoriti
   useEffect(() => {
     let flag = false;
     let timeId = setInterval(() => {
@@ -83,6 +114,7 @@ function GameBox() {
         return elem;
       });
       if (flag === true) {
+        setScore(score+1)
         newPosition.shift();
         newPosition.push({
           top: Math.floor(Math.random() * 90),
@@ -123,6 +155,12 @@ function GameBox() {
         overflow: "hidden",
       }}
     >
+      <div className="scoreBox">
+        <h6>
+          SCORE
+        <span > {score}</span>
+        </h6>
+      </div>
       <Character
         img={amogus}
         position={`${charaPosition.toString() + "vh"}`}

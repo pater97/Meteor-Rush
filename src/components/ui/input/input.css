@@ -8,21 +8,22 @@
 }
 
 .input-box {
-    color:white;
+    color:black;
     font-size: large;
     padding: 10px 0 10px 8px;
-    border: none;
     border-radius: 5px;
     outline: none;
     margin: auto;
-    background-color: rgb(181, 126, 220);
+    /*background-color: rgb(181, 126, 220);*/
     box-shadow: 5px 5px 10px 0px #000000;
+    background: silver;
+    border: 2px solid silver;
 }
 
 .input-box::placeholder{
-    position: relative;
-    font-size: 16px;
-    color:lightgray;
+    font-family: 'Chronosfer';
+    font-size: 1.3rem;
+    color: black;
 }
 
 @media only screen and (min-width: 1100px) {

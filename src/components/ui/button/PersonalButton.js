@@ -11,26 +11,15 @@ function Button(props) {
   }
 
   return (
-    <button 
-      className={`btn ${(props.classCss)}`} 
-      style={props.objCss} 
-      onClick={press}
-    >
-      {props.label}
-    </button>
+    <div className='button-container' onClick={press}>
+        {props.label}
+    </div>
   )
 }
 
 Button.propTypes = {
-  classCss: PropTypes.string,
   label: PropTypes.string.isRequired,
-  callBack: PropTypes.func,
-  objCss: PropTypes.object
-}
-
-Button.defaultProps = {
-  label: "play",
-  classCss:''
+  callBack: PropTypes.func
 }
 
 export default Button
