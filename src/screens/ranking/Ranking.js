@@ -22,12 +22,12 @@ function Ranking() {
                     <span>USER</span>
                     <span>SCORE</span>
                 </div>
-                <div>
+                <div className='score'>
                     {
                         // value &&
                         users.map(element => {
                             return (
-                                <div>
+                                <div className='scoreMap'>
                                     <span>{element.name}</span>
                                     <span>{element.score}</span>
                                 </div>

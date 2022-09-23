@@ -30,10 +30,21 @@
 .container-ranking .title{
     color: silver;
 }
-.container-ranking div{
+.container-ranking .title{
     display: flex;
     justify-content: space-around;
     width: 100%;
     font-size: 2rem;
     margin: 1rem 0;
+}
+.container-ranking .score{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.container-ranking .score .scoreMap{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 2rem;
 }
