@@ -40,6 +40,7 @@ function GameBox() {
   const GRAVITY = 10;
   const CHARACTER_LEFT = 20;
   const JUMP_HEIGHT = 1000; //distanza di salto
+  let user = {}
 
   const [charaPosition, setCharaPosition] = useState(80);
   const [score, setScore] = useState(0);
@@ -91,6 +92,7 @@ function GameBox() {
     if (collisionChecker) {
       hit.play()
       navigate("/gameover")
+  
     }
   }, [charaPosition, obstacle]);
   //

@@ -8,6 +8,7 @@
     background-image: url(../../assets/images/layers/loginWP.jpg);
     background-size: cover;
 }
+
 .login-container .button-container{
     display: flex;
     justify-content: center;

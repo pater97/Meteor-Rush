@@ -8,7 +8,7 @@ import Register from './screens/register/Register'
 import Login from './screens/login/Login';
 import Tutorial from './screens/tutorial/Tutorial'
 import GameOver from './screens/gameOver/GameOver'
-import Rank from './screens/classifica/Classifica'
+import Ranking from './screens/ranking/Ranking'
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <Route path="/tutorial" element={<Tutorial />} />
         <Route path="/game" element={<Game />} />
         <Route path="/gameover" element={<GameOver />} />
-        <Route path="/rank" element={<Rank />} />
+        <Route path="/ranking" element={<Ranking />} />
       </Routes>
     </div>
   );
