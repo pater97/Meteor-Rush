@@ -21,8 +21,8 @@ class Form extends Component {
         }
 
         this.user = []
-        if(JSON.parse(localStorage.getItem("user"))){
-            this.user = JSON.parse(localStorage.getItem("user"))
+        if(JSON.parse(localStorage.getItem("users"))){
+            this.user = JSON.parse(localStorage.getItem("users"))
         }
 
         console.log(this.user)
@@ -44,6 +44,12 @@ class Form extends Component {
             !(this.handleError()) &&
             this.checkUser()
         ){
+            let currUser = {
+                email: this.emailHandler,
+                score: 0
+            }
+
+            localStorage.setItem('currUser', JSON.stringify(currUser))
             this.props.router.navigate('/tutorial')
         }
     }

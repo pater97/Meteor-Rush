@@ -18,8 +18,8 @@ class Register extends Component {
     super(props)
     
     this.user = []
-    if(JSON.parse(localStorage.getItem("user"))){
-      this.user = JSON.parse(localStorage.getItem("user"))
+    if(JSON.parse(localStorage.getItem("users"))){
+      this.user = JSON.parse(localStorage.getItem("users"))
     }
 
     this.state = {
@@ -64,7 +64,7 @@ class Register extends Component {
         score: 0
       })
 
-      localStorage.setItem('user', JSON.stringify(userState))
+      localStorage.setItem('users', JSON.stringify(userState))
       this.props.router.navigate('/')
     }
   }
