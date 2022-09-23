@@ -87,7 +87,8 @@ class Register extends Component {
 
     if (
       this.emailHandler === "" || 
-      /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.emailHandler) === false
+      /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.emailHandler) === false ||
+      this.checkEmail() === true
     ) {
       state.emailError = true;
       error = true;
@@ -110,6 +111,18 @@ class Register extends Component {
 
     this.setState(state);
     return error;
+  }
+
+  checkEmail(){
+
+    for (let i = 0; i < this.user.length; i++) {
+      if (this.emailHandler === this.user[i]["email"]) {
+          console.log("errore")
+          return true;
+      }
+  }
+
+  return false;
   }
 
   render() {
