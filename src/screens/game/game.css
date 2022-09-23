@@ -28,7 +28,7 @@
   background: url("../../assets/images/layers/layer1.png") repeat-x;
   background-position: bottom;
   z-index: 100;
-  animation: slide 5s linear infinite;
+  animation: slide 1.8s linear infinite;
 }
 
 .layer2 {
@@ -36,7 +36,7 @@
   background-position: bottom;
   z-index: 90;
   background-repeat-y: no-repeat;
-  animation: slide 10s linear infinite;
+  animation: slide 7s linear infinite;
 }
 .layer3 {
   background-image: url("../../assets/images/layers/layer3.png");
@@ -58,7 +58,7 @@
   background-position: bottom;
   z-index: 90;
   background-repeat-y: no-repeat;
-  animation: slide 10s linear infinite;
+  animation: slide 7s linear infinite;
 }
 /* pianeti */
 /* generali */
@@ -190,11 +190,38 @@
   height: 100%;
   top: 0;
   left: 0;
-  z-index:110
+  z-index: 110;
 }
 
-@media only screen and (max-height: 700px){
-  #gamebox{
-      position: relative;
+@media only screen and (max-height: 700px) {
+  #gamebox {
+    position: relative;
   }
+}
+
+.btn-start {
+  position: absolute;
+    z-index: 1000;
+    background-color: transparent !important;
+    border: solid white;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    font-family: "Chronosfer";
+    font-size: 5rem;
+    padding-bottom:3%;
+    letter-spacing: 5px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    color: rgb(236, 217, 46);
+    width: 30vw;
+    height: 15vw;
+}
+
+.btn-start:hover{
+  box-shadow: inset 0px 0px 15px 10px purple;
+
 }

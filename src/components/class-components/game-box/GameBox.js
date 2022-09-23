@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Howl, Howler } from "howler";
+
 
 //img
 import amogus from "../../../assets/images/amogus.png";
@@ -8,6 +10,8 @@ import Meteor from "../../../assets/images/layers/meteor-square.png";
 //components
 import Character from "../../functional-components/character/Character";
 import Obstacle from "../../functional-components/obstacle/Obstacle";
+
+
 
 function GameBox() {
   const BOX_HEIGHT = 100;
@@ -31,8 +35,6 @@ function GameBox() {
       width: 50,
     },
   ]);
-
-  //componentDidMount
 
   // funzione della gravità
   useEffect(() => {
@@ -74,7 +76,7 @@ function GameBox() {
       let newPosition = obstacle.map((elem, key) => {
         key = Math.random();
         if (elem.left >= -elem.width) {
-          elem.left = elem.left - 5;
+          elem.left = elem.left - 10;
         } else {
           flag = true;
         }
@@ -83,7 +85,7 @@ function GameBox() {
       if (flag === true) {
         newPosition.shift();
         newPosition.push({
-          top: Math.floor(Math.random() * 100),
+          top: Math.floor(Math.random() * 90),
           left: BOX_WIDTH,
           width: Math.floor(Math.random() * 200) + 50,
         });
