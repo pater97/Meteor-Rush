@@ -12,6 +12,7 @@ class Login extends Component {
     this.menuMusic = new Howl({
       src: MenuMusic,
       volume: 0.2,
+      loop: true
     });
   }
 

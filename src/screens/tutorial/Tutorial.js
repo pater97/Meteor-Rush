@@ -44,7 +44,7 @@ function Tutorial() {
             </picture>
             <div className='caption'>
                 <h1>
-                    UNO SCIAME DI METEORE HA INTERROTTO LASPEDIZIONE<br />
+                    UNO SCIAME DI METEORE HA INTERROTTO LA SPEDIZIONE<br />
                      SUL PIANETA GAMMA-SEI! <br />
                      AIUTA L'INTREPIDO ASTRONAUTA!
                 </h1>
