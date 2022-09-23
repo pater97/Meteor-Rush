@@ -9,13 +9,12 @@ class Login extends Component{
     }
 
     change(e){
-
     }
 
     render(){
         return(
             <div className={"login-container"}>
-                <h1>METEOR RUSH</h1>
+                <h1>TITOLO GAME</h1>
                 <Form />
             </div>
         );
