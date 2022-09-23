@@ -7,7 +7,7 @@
     box-shadow: 5px 5px 10px 0px #000000;
 }
 
-button{
+.button-container button{
     display:flex;
     justify-content:center;
     align-items: center;
@@ -22,7 +22,7 @@ button{
     border: none;
 }
 
-button:hover{
+.button-container button:hover{
     background: black;
     transition: all 0.2s;
     cursor: pointer;

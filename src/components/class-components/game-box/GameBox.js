@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 //img
 import amogus from "../../../assets/images/amogus.png";
 import Column from "../../../assets/images/column.png";
-import Meteor from "../../../assets/images/layers/meteor3.png";
+import Meteor from "../../../assets/images/layers/meteor-square.png";
 
 //components
 import Character from "../../functional-components/character/Character";
@@ -129,7 +129,7 @@ function GameBox() {
       />
 
       {obstacle.map((obs, key) => {
-        console.log("obstacle", obs);
+        // console.log("obstacle", obs);
         return (
           <Obstacle
             img={Meteor}

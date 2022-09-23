@@ -3,11 +3,15 @@ import '../tutorial/tutorial.css'
 // import lotti
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
-import Button from '../../components/ui/button/Button'
+import Button from '../../components/ui/button/PersonalButton'
+import { Navigate } from 'react-router-dom';
 
 
 function Tutorial() {
 
+    function goGame(){
+        Navigate('/game')
+    }
 
     return (
         <div id='tutorial'>
@@ -58,6 +62,7 @@ function Tutorial() {
                 </ul>
                 <Button
                     label={'SONO PRONTO'}
+                    callBack={goGame}
                 />
             </div>
         </div>

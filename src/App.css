@@ -2,4 +2,5 @@
     background-image: url('./assets//images/layers/sky8.svg');
     background-size: cover;
     font-family: 'Chronosfer';
+    min-height: 100vh;
 }

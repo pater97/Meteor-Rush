@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 5%;
+    padding: 0 5%;
 }
 
 picture,
@@ -24,14 +24,28 @@ picture,
     margin-top: 0 !important;
 }
 
-h1 {
+.caption h1 {
     color: silver;
     font-weight: bold;
     filter: drop-shadow(2px 4px 6px orangered);
     text-align: start;
 }
+.caption button{
+    background-color: orangered;
+    padding: 1rem 2rem;
+    border: none;
+    width: 100%;
+    font-weight: bold;
+    letter-spacing: 5px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    border-radius: 10px;
+}
+.caption button:hover{
+    transform: scale(110%);
+}
 
-ul {
+.caption ul {
     list-style: none;
     text-align: start;
     line-height: 3rem;

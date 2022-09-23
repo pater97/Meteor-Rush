@@ -4,7 +4,7 @@ import GameBox from '../../components/class-components/game-box/GameBox';
 // import lottieControll
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
-function Test() {
+function Game() {
 
         return (
 
@@ -38,4 +38,4 @@ function Test() {
         )
 }
 
-export default Test
+export default Game
