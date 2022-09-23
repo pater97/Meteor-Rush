@@ -11,6 +11,7 @@
 
 .lottiAstro{
     animation: scale 2s linear;
+    margin: auto;
 }
 .gameover-container{
     max-height: 100vh;
@@ -48,3 +49,21 @@
         filter: opacity(1);
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .lottiAstro{
+      width: 40%;
+    }
+    .gameover-container{
+        margin: 1rem;
+    }
+  }
+  @media only screen and (max-height: 400px) {
+    .lottiAstro{
+      width: 40%;
+    }
+    .gameover-container{
+        height: 90%;
+    }
+  }
+  
