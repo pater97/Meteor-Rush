@@ -44,22 +44,22 @@ function Tutorial() {
             </picture>
             <div className='caption'>
                 <h1>
-                    OH NO! <br />
-                    IL PIANETA STA PER ESPLODERE A CAUSA DELLE METEORITI <br />
-                    DEVI FUGGIRE!
+                    UNO SCIAME DI METEORE HA INTERROTTO LASPEDIZIONE<br />
+                     SUL PIANETA GAMMA-SEI! <br />
+                     AIUTA L'INTREPIDO ASTRONAUTA!
                 </h1>
                 <ul>
                     <li>
-                        <i className="fa-solid fa-meteor"></i> | <span>Evita le meteore lungo il cammino</span>
+                        <i className="fa-solid fa-meteor"></i> | <span>Evita le meteore lungo il cammino continuando a saltare</span>
                     </li>
                     <li>
-                        <i className="fa-solid fa-computer-mouse"></i> | <span>premi il tasto sinistro per eseguire il salto</span>
+                        <i className="fa-solid fa-computer-mouse"></i> | <span>Da computer: Premi il tasto sinistro</span>
                     </li>
                     <li>
-                        <i className="fa-solid fa-hand-pointer"></i> | <span>Tappa nel caso in cui sei su mobile</span>
+                        <i className="fa-solid fa-hand-pointer"></i> | <span>Da Mobile: Tocca lo schermo</span>
                     </li>
                     <li>
-                        <i className="fa-solid fa-person-running"></i> | <span>Corri più che puoi e raggiungi il massimo risultato</span>
+                        <i className="fa-solid fa-person-running"></i> | <span>Sopravvivi il più a lungo possibile!</span>
                     </li>
                 </ul>
                 <Button
