@@ -1,0 +1,39 @@
+#rank{
+    background-image: url('../../assets/images/layers/loginWP.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#rank h1{
+    color: silver;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+}
+.container-ranking{
+    min-height: 60%;
+    min-width: 60%;
+    border: solid white;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px 0px #000000;
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container-ranking .title{
+    color: silver;
+}
+.container-ranking div{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 2rem;
+    margin: 1rem 0;
+}

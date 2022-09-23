@@ -1,41 +1,40 @@
 import './ranking.css'
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function Ranking() {
 
-    const [value,setValue] = useState(false)
+    const [value, setValue] = useState(false)
+    const [users, setUsers] = useState([])
 
-    let users = []
+    // let users = []
 
     useEffect(() => {
-        users = JSON.parse(localStorage.getItem("users"))
-        console.log(users)
+        let users = JSON.parse(localStorage.getItem("users"))
+        setUsers(users)
         setValue(true)
-        console.log(value)
     }, []);
-
-    // componentDidMount(){
-    //     let state = this.state
-    //     state.users = JSON.parse(localStorage.getItem("users"))
-    //     this.setState(state)
-    //     // console.log(this.users)
-    // }
 
     return (
         <div id="rank">
-            <div>
-                prova
-            </div>
-            <div>
-                {
-                    value &&
-                    users.forEach(element => {
-                        return (
-                            console.log(element)
-                            // <span>{element.name}</span>
-                        )
-                    })
-                }
+            <h1>Ranking</h1>
+            <div className='container-ranking'>
+                <div className='title'>
+                    <span>USER</span>
+                    <span>SCORE</span>
+                </div>
+                <div>
+                    {
+                        // value &&
+                        users.map(element => {
+                            return (
+                                <div>
+                                    <span>{element.name}</span>
+                                    <span>{element.score}</span>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </div>
     )
