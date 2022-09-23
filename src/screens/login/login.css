@@ -9,7 +9,7 @@
     background-size: cover;
 }
 
-.login-container .button-container{
+.login-container .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,9 +29,17 @@
     letter-spacing: 5px;
 }
 
-.login-container .button-container:hover{
+.login-container .button-container:hover {
     background: purple;
     transform: scale(110%);
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+}
+
+.login-container .title {
+    filter: drop-shadow(0px 0px 10px black);
+    font-size: 5rem;
+    background: -webkit-linear-gradient(orange, gray);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

@@ -116,7 +116,7 @@ class Register extends Component {
     return (
       <div className="register">
         <form className="register-container">
-          <h1>REGISTER</h1>
+          <h1>REGISTRAZIONE</h1>
             
             <InputBox
               id={"username"}

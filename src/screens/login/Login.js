@@ -26,7 +26,7 @@ class Login extends Component {
   render() {
     return (
       <div className={"login-container"}>
-        <h1>METEOR RUSH</h1>
+        <h1 className="title">METEOR RUSH</h1>
         <Form />
       </div>
     );
