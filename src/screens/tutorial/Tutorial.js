@@ -4,13 +4,15 @@ import '../tutorial/tutorial.css'
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import Button from '../../components/ui/button/PersonalButton'
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function Tutorial() {
 
+    let navigate = useNavigate()
+    
     function goGame(){
-        Navigate('/game')
+        navigate('/game')
     }
 
     return (
