@@ -1,7 +1,10 @@
 import PropTypes from "prop-types"
+import InputError from "../inputError/InputError"
+import './input.css';
 
 
 function InputBox(props) {
+
   function change(e) {
     if (!!props.callBack) {
       props.callBack(e)
@@ -9,15 +12,16 @@ function InputBox(props) {
   }
 
   return (
-    <>
+    <div className="input-container">
       <input
+        id={props.id}
         type={props.type}
         placeholder={props.placeholder}
-        className={props.classCss}
-        style={props.objCss}
+        className={"input-box"}
         onChange={change}
       />
-    </>
+      {props.isError && <InputError msg={props.msg} />}
+    </div>
   )
 }
 

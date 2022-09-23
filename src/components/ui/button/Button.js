@@ -8,12 +8,8 @@ function Button(props){
     }
 
     return(
-        <div className='button-container'>
-            <button
-                onClick={press}
-            >
-                {props.label}
-            </button>
+        <div className='button-container' onClick={press}>
+            {props.label}
         </div>
     )
 

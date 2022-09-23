@@ -1,50 +1,93 @@
 import { Component } from "react";
+import withRouter from "../../../withRouter";
+
+//css
 import './form.css';
+
+//components
 import Input from "../../ui/input/Input";
 import Button from "../../ui/button/Button";
 
 
-class Form extends Component{
+class Form extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            username: "",
+            email: "",
             password: "",
-            usernameError: false,
+            emailError: false,
             passwordError: false
         }
 
-        this.usernameHandler = "";
+        this.user = []
+        if(JSON.parse(localStorage.getItem("user"))){
+            this.user = JSON.parse(localStorage.getItem("user"))
+        }
+
+        console.log(this.user)
+
+        this.emailHandler = "";
         this.passwordHandler = "";
     }
 
     change = (e) => {
-        if(e.target.id === "username") {
-            this.usernameHandler = e.target.value;
+        if (e.target.id === "email") {
+            this.emailHandler = e.target.value;
         } else {
             this.passwordHandler = e.target.value;
         }
     }
 
     submit = () => {
-        this.handleError();
+        if(
+            !(this.handleError()) &&
+            this.checkUser()
+        ){
+            this.props.router.navigate('/tutorial')
+        }
     }
 
-    handleError(){
-        let state = this.state;
+    checkUser(){
+        
+        for (let i = 0; i < this.user.length; i++) {
+            console.log(this.user[i]["email"])
+            console.log(this.user[i]["password"])
 
-        if(this.usernameHandler === ""){
-            state.usernameError = true;
-            console.log("username error");
+            console.log("Email: ", this.emailHandler)
+            console.log("Password: ", this.passwordHandler)
+            if (
+                this.emailHandler === this.user[i]["email"] &&
+                this.passwordHandler === this.user[i]["password"]
+            ) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    handleError() {
+        
+        let state = this.state;
+        let error = false;
+
+        if (
+            this.emailHandler === "" ||
+            /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.emailHandler) === false
+        ) {
+            state.emailError = true;
+            error = true;
+            console.log("email error");
         } else {
-            state.usernameError = false;
-            state.username = this.usernameHandler;
-            console.log("Username:", this.usernameHandler);
+            state.emailError = false;
+            state.email = this.emailHandler;
+            console.log("Email:", this.emailHandler);
         }
 
-        if(this.passwordHandler === ""){
+        if (this.passwordHandler === "") {
             state.passwordError = true;
+            error = true;
             console.log("password error");
         } else {
             state.passwordError = false;
@@ -53,42 +96,56 @@ class Form extends Component{
         }
 
         this.setState(state);
+        return error;
     }
 
-    render(){
-        return(
-            <form
-                className="form-container"
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    this.submit();
-                }}
-            >
-                <h1>LOGIN</h1>
+    goTo = () => {
+        this.props.router.navigate('/register')
+    }
 
-                <Input
-                    id={"username"}
-                    type={"text"}
-                    placeholder={"Username"}
-                    callback={this.change}
-                    isError={this.state.usernameError}
-                />
+    render() {
+        return (
+            <>
+                <form
+                    className="form-container"
+                    onSubmit={(e) => {
+                        e.preventDefault();
+                        this.submit();
+                    }}
+                >
+                    <h1>LOGIN</h1>
 
-                <Input
-                    id={"password"}
-                    type={"password"}
-                    placeholder={"Password"}
-                    callback={this.change}
-                    isError={this.state.passwordError}
-                />
+                    <Input
+                        id={"email"}
+                        type={"email"}
+                        placeholder={"EMAIL"}
+                        callback={this.change}
+                        isError={this.state.emailError}
+                        msg={"Enter a valid email"}
+                    />
 
-                <Button
-                    callback={this.submit}
-                    label={"Accedi"}
-                />
-            </form>
+                    <Input
+                        id={"password"}
+                        type={"password"}
+                        placeholder={"PASSWORD"}
+                        callback={this.change}
+                        isError={this.state.passwordError}
+                        msg={"Enter password"}
+                    />
+
+                    <Button
+                        callback={this.submit}
+                        label={"ACCEDI"}
+                    />
+
+                    <Button
+                        callback={this.goTo}
+                        label={"REGISTRATI"}
+                    />
+                </form>
+            </>
         );
     }
 }
 
-export default Form
+export default withRouter(Form)
