@@ -1,4 +1,5 @@
 .obstacle-container{
+  user-select:none;
   object-fit: contain;
   animation: shadow 3s linear infinite;
 

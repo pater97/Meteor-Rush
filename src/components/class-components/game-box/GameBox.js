@@ -18,25 +18,19 @@ import { useNavigate } from "react-router-dom";
 const jump = new Howl({
   src: Jump,
   html5: true,
-  autoplay: true,
-  loop: true,
   volume: 0.2,
 });
 
 const point = new Howl({
   src: Point,
   html5: true,
-  autoplay: true,
-  loop: true,
   volume: 0.2,
 });
 
 const hit = new Howl({
   src: Hit,
   html5: true,
-  autoplay: true,
-  loop: true,
-  volume: 0.2,
+  volume: 0.5,
 });
 
 function GameBox() {
@@ -95,7 +89,7 @@ function GameBox() {
     );
 
     if (collisionChecker) {
-      hit.once()
+      hit.play()
       navigate("/gameover")
     }
   }, [charaPosition, obstacle]);
@@ -115,6 +109,7 @@ function GameBox() {
       });
       if (flag === true) {
         setScore(score+1)
+        point.play()
         newPosition.shift();
         newPosition.push({
           top: Math.floor(Math.random() * 90),
@@ -140,6 +135,7 @@ function GameBox() {
 
   // funzione per saltare
   function handleClick() {
+    jump.play()
     if (charaPosition - JUMP_HEIGHT < 0) {
       setCharaPosition(0);
     } else {
