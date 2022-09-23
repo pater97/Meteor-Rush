@@ -11,17 +11,18 @@ import Epic from "../../assets/audios/Epic.m4a";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { useEffect, useState } from "react";
 
+
 function Game() {
   const [gameStart, setGameStart] = useState(false);
 
   const sound = new Howl({
-    src: Epic,
-    html5: true,
-    autoplay: true,
-    loop: true,
-    volume: 0.2,
-  });
-  useEffect(() => {}, []);
+        src: Epic,
+        html5: true,
+        autoplay: true,
+        loop: true,
+        volume: 0.2,
+      });
+
 
   function startGame() {
     setGameStart(true);
@@ -29,6 +30,11 @@ function Game() {
     console.log("ayy");
   }
 
+  useEffect(() => {
+    return () => { 
+      sound.stop()
+    }
+  })
   return (
     <div className="container">
       {/* layer */}
