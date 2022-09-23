@@ -17,11 +17,12 @@ class Form extends Component {
             email: "",
             password: "",
             emailError: false,
-            passwordError: false
+            passwordError: false,
+            loginError: false
         }
 
         this.user = []
-        if(JSON.parse(localStorage.getItem("users"))){
+        if (JSON.parse(localStorage.getItem("users"))) {
             this.user = JSON.parse(localStorage.getItem("users"))
         }
 
@@ -40,10 +41,10 @@ class Form extends Component {
     }
 
     submit = () => {
-        if(
+        if (
             !(this.handleError()) &&
             this.checkUser()
-        ){
+        ) {
             let currUser = {
                 email: this.emailHandler,
                 score: 0
@@ -51,11 +52,13 @@ class Form extends Component {
 
             localStorage.setItem('currUser', JSON.stringify(currUser))
             this.props.router.navigate('/tutorial')
+        } else {
+            this.state.loginError = true;
         }
     }
 
-    checkUser(){
-        
+    checkUser() {
+
         for (let i = 0; i < this.user.length; i++) {
             console.log(this.user[i]["email"])
             console.log(this.user[i]["password"])
@@ -69,12 +72,12 @@ class Form extends Component {
                 return true;
             }
         }
-        
+
         return false;
     }
 
     handleError() {
-        
+
         let state = this.state;
         let error = false;
 
@@ -138,6 +141,11 @@ class Form extends Component {
                         isError={this.state.passwordError}
                         msg={"Enter password"}
                     />
+
+                    {
+                        this.state.loginError &&
+                        <div className="login-error">Email o password errate</div>
+                    }
 
                     <Button
                         callback={this.submit}
