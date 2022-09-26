@@ -1,3 +1,7 @@
+# DESCRIZIONE
+
+Gioco in stile auto-run che sfrutta parallasse e collisione css. Lo scopo è fare la maggior distanza possibile evitando il massimo numero di meteore
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
